@@ -52,6 +52,11 @@ function validate() {
             console.log("znak " + password[i] + " znaleziono!");
             digitsFound = true;
         }
+        if (dspecials.indexOf(password[i]) > -1) {
+            //znalazł we wzorcu
+            console.log("znak " + password[i] + " znaleziono!");
+            specialsFound = true;
+        }
         
     }
     console.log("Koniec pętli!");
@@ -83,7 +88,15 @@ function validate() {
         digitsLi.innerHTML = "Hasło nie zawiera cyfr";
         digitsLi.className = "red";
     }
- 
+
+    let specialsLi = document.getElementById("specials");
+    if (specialsFound) {
+        specialsLi.innerHTML = "Hasło zawiera cyfry";
+        specialsLi.className = "green";
+    } else {
+        specialsLi.innerHTML = "Hasło nie zawiera cyfr";
+        specialsLi.className = "red";
+    }
     
 }
 
